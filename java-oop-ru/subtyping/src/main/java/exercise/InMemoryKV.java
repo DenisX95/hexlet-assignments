@@ -6,10 +6,10 @@ import java.util.Map;
 // BEGIN
 public class InMemoryKV implements KeyValueStorage {
 
-    private Map<String, String> storage = new HashMap<>();
+    private Map<String, String> storage;
 
     public InMemoryKV(Map<String, String> storage) {
-        this.storage = storage;
+        this.storage = new HashMap<>(storage);
     }
 
     @Override
