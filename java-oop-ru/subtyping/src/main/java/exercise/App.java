@@ -1,5 +1,6 @@
 package exercise;
 
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -7,13 +8,13 @@ import java.util.Set;
 // BEGIN
 public class App {
     public static void swapKeyValue(KeyValueStorage storage) {
-        System.out.println(1);
-        var map = storage.toMap();
-        System.out.println(2);
-        map.forEach((k, v) -> {
-            map.put(v, k);
-        });
+        Set<String> keys = new HashSet<>(storage.toMap().keySet());
 
+        for (var key : keys) {
+            var value = storage.get(key, "defautl");
+            storage.unset(key);
+            storage.set(value, key);
+        }
     }
 }
 // END
