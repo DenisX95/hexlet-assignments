@@ -7,13 +7,12 @@ import java.util.Set;
 // BEGIN
 public class App {
     public static void swapKeyValue(KeyValueStorage storage) {
-        var keys = storage.toMap().keySet();
+        var map = storage.toMap();
 
-        for (var key : keys) {
-            var value = storage.get(key, "default");
-            storage.unset(key);
-            storage.set(value, key);
-        }
+        map.forEach((k, v) -> {
+            map.put(v, k);
+        });
+
     }
 }
 // END
