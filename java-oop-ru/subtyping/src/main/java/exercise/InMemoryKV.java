@@ -1,11 +1,12 @@
 package exercise;
 
+import java.util.HashMap;
 import java.util.Map;
 
 // BEGIN
 public class InMemoryKV implements KeyValueStorage {
 
-    private Map<String, String> storage;
+    private Map<String, String> storage = new HashMap<>();
 
     public InMemoryKV(Map<String, String> storage) {
         this.storage = storage;
