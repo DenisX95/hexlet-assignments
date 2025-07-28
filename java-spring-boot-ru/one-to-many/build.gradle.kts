@@ -36,12 +36,6 @@ dependencies {
     testImplementation("net.javacrumbs.json-unit:json-unit-assertj:3.2.2")
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
-}
-
 tasks.test {
     useJUnitPlatform()
     testLogging {
